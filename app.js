@@ -57,7 +57,7 @@ bot.dialog('/', [
     function (session, results) {
         if (results.response) {
             var month = salesData[results.response.entity];
-            session.send("%(orderCount)d were closed for a value of %(orderValue)d.", month); 
+            session.send("%(orderCount)d orders were completed for a total value of %(orderValue)d.", month); 
         } else {
             session.send("ok");
         }
