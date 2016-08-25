@@ -19,64 +19,45 @@ var connector = new builder.ChatConnector
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-//default...
-/*
-bot.dialog('/', [
-    function (session) {
-        builder.Prompts.text(session, 'Hi! What is your name?');
-    },
-    function (session, results) {
-        session.send('Hello %s!', results.response);
-    }
-]);
-*/
-
-var ticketData = {
+var salesData = {
     "jan": {
-        inflow: 2821,
-        resolved: 2464,
-        backlog: 1358
+        orderCount: 2821,
+        orderValue: 2464000
     },
     "feb": {
-        inflow: 2997,
-        resolved: 2717,
-        backlog: 1638
+        orderCount: 2997,
+        orderValue: 2717000
     },
     "mar": {
-        inflow: 3037,
-        resolved: 2922,
-        backlog: 1753
+        orderCount: 3037,
+        orderValue: 2922000
     },
     "apr": {
-        inflow: 3374,
-        resolved: 3442,
-        backlog: 1685
+        orderCount: 3374,
+        orderValue: 3442000
     },
     "may": {
-        inflow: 2731,
-        resolved: 3143,
-        backlog: 1273
+        orderCount: 2731,
+        orderValue: 3143000
     },
     "jun": {
-        inflow: 2467,
-        resolved: 2517,
-        backlog: 1223
+        orderCount: 2467,
+        orderValue: 2517000
     },
     "jul": {
-        inflow: 2247,
-        resolved: 2424,
-        backlog: 1046
+        orderCount: 2247,
+        orderValue: 2424000
     }
 };
 
 bot.dialog('/', [
     function (session) {
-        builder.Prompts.choice(session, "Hi. I am your tiketbot to help you with theticket metrics. Which month would you like ticket metrics for?", ticketData); 
+        builder.Prompts.choice(session, "Hi. I am your salesbot to help you with the sales metrics. Which month would you like sales metrics for?", salesData); 
     },
     function (session, results) {
         if (results.response) {
-            var month = ticketData[results.response.entity];
-            session.send("There was an inflow of %(inflow)d tickets. Team resolved %(resolved)d and ended up with a backlog of %(backlog)d.", month); 
+            var month = salesData[results.response.entity];
+            session.send("%(orderCount)d were closed for a value of %(orderValue)d.", month); 
         } else {
             session.send("ok");
         }
