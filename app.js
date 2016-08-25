@@ -76,7 +76,7 @@ bot.dialog('/', [
     function (session, results) {
         if (results.response) {
             var month = ticketData[results.response.entity];
-            session.send("For the month of %(month)s, there was an inflow of %(inflow)d tickets. Team resolved %(resolved)d and ended up with a backlog of %(backlog)d.", month); 
+            session.send("For the month of %(results.response.entity)s, there was an inflow of %(inflow)d tickets. Team resolved %(resolved)d and ended up with a backlog of %(backlog)d.", month); 
         } else {
             session.send("ok");
         }
