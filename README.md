@@ -1,2 +1,2 @@
 # salesbot
-a bot that povides sales information
+## a bot that povides sales information
