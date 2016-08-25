@@ -1,0 +1,29 @@
+{
+  "name": "salesbot",
+  "version": "1.0.0",
+  "description": "sales bot built using microsoft bot framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhuvanarajamani/salesbot.git"
+  },
+  "keywords": [
+    "bot",
+    "sales",
+    "slack",
+    "skype"
+  ],
+  "author": "Bhuvana Rajamani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhuvanarajamani/salesbot/issues"
+  },
+  "homepage": "https://github.com/bhuvanarajamani/salesbot#readme",
+  "dependencies": {
+    "botbuilder": "^3.2.3",
+    "restify": "^4.1.1"
+  }
+}
